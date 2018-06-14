@@ -1,0 +1,34 @@
+<p>
+    {{titulo}}
+</p>
+
+
+
+
+<label>
+    la fecha de hoy:
+    <strong> {{hoy| date:'dd/MM/yyyy' | uppercase}} </strong>
+    <strong> {{hoy| date:'fullDate'|  lowercase}} </strong>
+</label>
+
+<br>
+
+
+<br>
+<p *ngIf="prendaCurrent">
+    la prenda a guardar:
+    <strong> {{prendaCurrent}}</strong>
+</p>
+<input [(ngModel)]="prendaCurrent" type="text">
+<br>
+
+
+
+<input type="button" (click)="nuevaPrenda();" value="añadir prenda">
+
+<ul>
+    <li *ngFor="let prenda of listadoRopa; let i= index">
+        {{i}}- {{prenda}}
+        <button (click)="eliminarPrenda(i)">eliminar</button>
+    </li>
+</ul>

@@ -1,0 +1,29 @@
+<h3>
+  formulario coches
+</h3>
+
+
+<form #formCoche="ngForm" (ngSubmit)="onSubmit()">
+
+
+  <p>
+    <label>nombre : </label>
+    <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="_coche.Nombre" required>
+  </p>
+
+
+  <p>
+    <label>Caballaje : </label>
+    <input type="text" name="Caballaje" #Caballaje="ngModel" [(ngModel)]="_coche.Caballaje" >
+  </p>
+
+
+  <p>
+    <label>Color : </label>
+    <input type="text" name="Color" #Color="ngModel" [(ngModel)]="_coche.Color" >
+  </p>
+
+
+  <input type="submit" value="guardar.">
+
+</form>

@@ -1,0 +1,126 @@
+<hr> ---->([ngModel]) --->
+
+<input type="text" [(ngModel)]="color2">
+
+<div [ngStyle]="{ 
+        'border': '3px solid '  + color2,
+        'width': '200px',
+        'height': '200px',
+        'float' : 'left',
+        'padding': '2em'
+}">
+
+</div>
+
+
+
+<div style="clear:both">
+
+</div>
+<hr>
+
+
+<div [style.border]="color2=='red' ? '2px solid black' :  '3px solid #59e264' " 
+[ngClass]="{
+    fondoAzul: color2=='blue',
+    fondoVerde: color2=='green'
+}">
+    soy dinamico
+</div>
+
+
+
+<span [ngStyle]="{
+            'color':color2, 
+            'font-size': tamanoFuente + 'px'}
+">
+    {{titulo}}
+</span>
+
+<h3 [ngSwitch]="color2">
+
+    <span *ngSwitchCase="'red'" [ngStyle]="
+                        {'color':color2, 
+                        'font-size': tamanoFuente + 'px'}
+    ">
+        {{titulo}}
+    </span>
+
+    <span *ngSwitchCase="'blue'" [ngStyle]="
+                        {color:color2, 
+                        'font-size': tamanoFuente + 'px'
+                    }">
+        {{titulo}}
+    </span>
+
+
+
+</h3>
+
+<button (click)="tamanoFuente = tamanoFuente + 1">Aumentar ++</button>
+<button (click)="tamanoFuente = tamanoFuente - 1">Disminuir --</button>
+
+
+<hr>
+
+
+<span>
+    Empleado Estrella: Nombre:{{empleado.Nombre}}
+    <br> Edad: {{empleado.Edad}}
+    <br> Infonavti: {{empleado.CreditoInfonavit}}
+    <br> Numero seguridad social: {{empleado.NSS}}
+
+
+</span>
+
+
+<br> estatus: {{esExterno}}
+<br>
+
+<hr>
+
+<br>
+<div *ngIf='esExterno==true'>
+
+    <button (click)="cambiarExterno(false)">externo </button>
+    <span>
+        Externo
+    </span>
+
+</div>
+
+
+
+<div *ngIf='esExterno==false'>
+
+    <button (click)="cambiarExterno(true)">interno </button>
+    <span>
+        No es externo ,probablemente sea interno.
+    </span>
+</div>
+
+<hr> ng for
+
+
+<div *ngFor="let currentE  of empleados">
+
+
+
+    <span>
+        Nombre: {{currentE.Nombre}} Edad: {{currentE.Edad}}
+    </span>
+
+</div>
+
+<ul>
+
+    <li *ngFor="let currentE  of empleados">
+
+        <ol>
+            Nombre: {{currentE.Nombre}} Edad: {{currentE.Edad}}
+        </ol>
+
+
+    </li>
+
+</ul>
